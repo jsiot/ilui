@@ -12,20 +12,25 @@
   </head>
   <body>
     
-    <div class="window">
-        <header class="toolbar toolbar-header">
+    <div class="window" ng-app="img2lcd" ng-controller="AppController">
+      <header class="toolbar toolbar-header">
         <div class="toolbar-actions">
           <div class="btn-group">
             <button class="btn btn-default btn-large" title="Select Image">
               <span class="icon icon-picture"></span>
             </button>
-            <button class="btn btn-default btn-large" title="Convert to Hex" id="convertBtn">
+            <button class="btn btn-default btn-large" title="Convert to Hex" id="convertBtn" ng-click="convert()">
               <span class="icon icon-arrows-ccw"></span>
             </button>
-            <button class="btn btn-default btn-large" title="Save">
+            <button class="btn btn-default btn-large" title="Save" ng-click="save()">
               <span class="icon icon-floppy"></span>
             </button>
         </div>
+        <!--
+        <div class="btn  btn-default btn-large pull-right">
+          <span class="icon icon-record"></span>
+        </div>
+        -->
        </div>
       </header>
       <div class="window-content">
@@ -35,6 +40,9 @@
          </div>
         </div>
       </div>
+      <footer class="toolbar toolbar-footer">
+          <p id="status">{{status}}</p>
+      </footer>
     </div>
 
     <script src="node_modules/angular/angular.js"></script>
