@@ -53,6 +53,13 @@
     			});
     		}
     	}
+
+    	$scope.open = function(){
+    		dialog.openFile(function(s){
+              img.src = s[0];
+              imgFile = s[0];
+    		})
+    	}
     }]);
 
 })()
