@@ -1,10 +1,12 @@
 (function(){
 	'use strict';
-
+    
   	var content = document.getElementById('main');
   	var img = document.getElementById('imageToConvert');
+  	var remote = require('remote').require('./lib/convert.js');
+  	var dialog = require('remote').require('./lib/util.js');
 
-	var remote = require('remote').require('./lib/convert.js');
+    var imgFile = null;
     
 	document.addEventListener('dragover', function (e) {
 		e.preventDefault();
@@ -19,8 +21,6 @@
         return false;
     }, false)	
 
-    var imgFile = null;
-
 	document.addEventListener('drop' , function (e) {
 	    e.preventDefault();
 	    var file = e.dataTransfer.files[0];
@@ -29,10 +29,30 @@
 	    return false;
 	}, false);
 
-	var convertBtn = document.getElementById('convertBtn');
-	convertBtn.addEventListener('click', function(){
-		if(imgFile != null) {
-			remote.convert(imgFile);	   
-		}
-	})
+	angular.module('img2lcd', []).controller('AppController', ['$scope',function($scope){
+    	$scope.status = '';
+        $scope.tmpFile;
+
+    	$scope.convert = function(){
+    		if(imgFile != null) {
+			  remote.convert(imgFile, function(err, status){
+				if(err){ 
+				  console.log(err);
+				} else {
+				  console.log(status);
+				  $scope.tmpFile = status;   
+				}
+			  });	   
+		    }
+    	}
+
+    	$scope.save = function(){
+    		if($scope.tmpFile){
+    			dialog.saveFile($scope.tmpFile, function(f){
+                  $scope.status = f;
+    			});
+    		}
+    	}
+    }]);
+
 })()
