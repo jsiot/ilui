@@ -1,3 +1,5 @@
+'use strict';
+
 var app = require('app'); 
 var BrowserWindow = require('browser-window');
 var mainWindow = null;
@@ -24,5 +26,4 @@ app.on('ready', function() {
     mainWindow = null;
   });
 });
-
 
