@@ -1,0 +1,24 @@
+{
+  "name": "img2lcd-ui",
+  "version": "1.0.0",
+  "description": "GUI for img2lcd",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "./node_modules/.bin/electron ."
+  },
+  "keywords": [
+    "gui",
+    "img2lcd"
+  ],
+  "author": "Equan Pr.",
+  "license": "MIT",
+  "devDependencies": {
+    "electron-prebuilt": "^0.33.8"
+  },
+  "dependencies": {
+    "angular": "^1.4.7",
+    "angular-route": "^1.4.7",
+    "img2lcd": "^1.1.0"
+  }
+}
