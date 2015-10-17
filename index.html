@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>IMG2LCD</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"gt;
+    <meta name="IMG2LCD GUI" content="">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <!-- build:css assets/css/app.css -->
+    <link rel="stylesheet" href="css/photon.min.css">
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+  <body>
+    
+    <div class="window">
+        <header class="toolbar toolbar-header">
+        <div class="toolbar-actions">
+          <div class="btn-group">
+            <button class="btn btn-default btn-large" title="Select Image">
+              <span class="icon icon-picture"></span>
+            </button>
+            <button class="btn btn-default btn-large" title="Convert to Hex">
+              <span class="icon icon-arrows-ccw"></span>
+            </button>
+            <button class="btn btn-default btn-large" title="Save">
+              <span class="icon icon-floppy"></span>
+            </button>
+        </div>
+       </div>
+      </header>
+      <div class="window-content">
+        <div class="padded-more">
+         <div id="main" class="content">
+           
+         </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/angular-route/angular-route.js"></script>
+    <script src="js/menu.js" charset="utf-8"></script>
+    <script src="js/main.js" charset="utf-8"></script>
+  
+  </body>
+</html>
