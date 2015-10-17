@@ -1,11 +1,12 @@
 (function(){
 	'use strict';
-    
-  	var content = document.getElementById('main');
-  	var img = document.getElementById('imageToConvert');
-  	var remote = require('remote').require('./lib/convert.js');
+
+    var core = require('./lib/convert.js');
   	var dialog = require('remote').require('./lib/util.js');
 
+  	var content = document.getElementById('main');
+  	var img = document.getElementById('imageToConvert');
+  	
     var imgFile = null;
     
 	document.addEventListener('dragover', function (e) {
@@ -32,15 +33,16 @@
 	angular.module('img2lcd', []).controller('AppController', ['$scope',function($scope){
     	$scope.status = '';
         $scope.tmpFile;
-
+       
     	$scope.convert = function(){
     		if(imgFile != null) {
-			  remote.convert(imgFile, function(err, status){
+			  core.convert(imgFile, function(err, data){
 				if(err){ 
 				  console.log(err);
 				} else {
-				  console.log(status);
-				  $scope.tmpFile = status;   
+				  $scope.tmpFile = data.path;
+				  console.log(data.path);  
+				  document.getElementById('hex').value = data.content;
 				}
 			  });	   
 		    }
