@@ -1,3 +1,5 @@
+'use strict';
+
 var remote = require('remote');
 var Menu = remote.require('menu');
 var MenuItem = remote.require('menu-item');
@@ -6,22 +8,22 @@ var menu = new Menu();
 var template = [
 	{ label: 'Help', submenu: [
 	   { label: 'Documentation',
-	     click: function(){
+	     click: () => {
            require('shell').openExternal('https://github.com/jsiot/img2lcdui');
 	     }
 	   },
 	   { label: 'Developer',
-		 click: function(){
-		   
+		 click: () => {
+		   console.log('Not implemented yet');
 		 }
 	   },
 	   { label: 'Feedback',
-         click: function(){
+         click: () => {
            require('shell').openExternal('https://github.com/jsiot/img2lcdui/issues');
          }
 	   },
 	   { label: 'Exit',
-	     click: function(){
+	     click: () => {
            remote.require('app').quit();
 	     }
 	   }
@@ -29,4 +31,4 @@ var template = [
 ]
 
 menu = Menu.buildFromTemplate(template);
-Menu.setApplicationMenu(menu);
+//Menu.setApplicationMenu(menu);

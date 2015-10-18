@@ -1,17 +1,18 @@
 'use strict';
 
-var app = require('app'); 
-var BrowserWindow = require('browser-window');
-var mainWindow = null;
-var info = require('./package.json');
+const app = require('app'); 
+const BrowserWindow = require('browser-window');
+const info = require('./package.json');
 
-app.on('window-all-closed', function() {
+let mainWindow = null;
+
+app.on('window-all-closed', () => {
   if (process.platform != 'darwin') {
     app.quit();
   }
 });
 
-app.on('ready', function() {
+app.on('ready', () => {
   mainWindow = new BrowserWindow({
     width: 640,
     height: 510,
@@ -22,8 +23,6 @@ app.on('ready', function() {
     title: info.name +' v'+info.version
   });
 
-  mainWindow.loadUrl('file://' + __dirname + '/index.html');
-  mainWindow.on('closed', function() {
-    mainWindow = null;
-  });
+  mainWindow.loadUrl(`file://${__dirname}/index.html`);
+  mainWindow.on('closed', () => mainWindow = null);
 });
