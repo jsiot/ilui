@@ -5,6 +5,7 @@
     var fs = require('fs');
     var sizeOf = require('image-size');
     var filesize = require('filesize');
+    var clipboard = require('clipboard');
 
     var core = require('./lib/convert.js');
   	var dialog = require('remote').require('./lib/util.js');
@@ -33,8 +34,19 @@
 	    var file = e.dataTransfer.files[0];
 	    img.src = file.path;
 	    imgFile = file.path;
+	    setProperties(imgFile);
 	    return false;
 	}, false);
+
+	function setProperties(imageFile) {
+        var d = sizeOf(imageFile);
+        var stats = fs.statSync(imageFile);
+        document.getElementById('hex').value = '';
+	    document.getElementById('status').innerHTML = '';
+        document.getElementById('imgname').innerHTML = path.basename(imgFile);
+        document.getElementById('imgdim').innerHTML = d.width+'x'+d.height; 
+        document.getElementById('imgsize').innerHTML = filesize(stats['size'], {round: 0});
+    }
 
 	angular.module('img2lcd', []).controller('AppController', ['$scope',function($scope){
     	$scope.status = '';
@@ -67,14 +79,14 @@
     		dialog.openFile(function(s){
               img.src = s[0];
               imgFile = s[0];
-              var d = sizeOf(imgFile);
-              var stats = fs.statSync(imgFile);
-              document.getElementById('hex').value = '';
-			  document.getElementById('status').innerHTML = '';
-              document.getElementById('imgname').innerHTML = path.basename(imgFile);
-              document.getElementById('imgdim').innerHTML = d.width+'x'+d.height; 
-              document.getElementById('imgsize').innerHTML = filesize(stats['size'], {round: 0});
+              setProperties(imgFile);
     		})
     	}
+
+    	$scope.copyToClipboard = function() {
+            clipboard.writeText(document.getElementById('hex').value);
+            document.getElementById('status').innerHTML = 'Hex copied to clipboard!';
+        }
+
     }]);
 })()
