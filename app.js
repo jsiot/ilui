@@ -13,8 +13,8 @@ app.on('window-all-closed', function() {
 
 app.on('ready', function() {
   mainWindow = new BrowserWindow({
-    width: 600,
-    height: 300,
+    width: 620,
+    height: 500,
     'min-width': 500,
     'min-height': 200,
     'accept-first-mouse': true,
@@ -23,9 +23,7 @@ app.on('ready', function() {
   });
 
   mainWindow.loadUrl('file://' + __dirname + '/index.html');
-  mainWindow.openDevTools();
   mainWindow.on('closed', function() {
     mainWindow = null;
   });
 });
-
