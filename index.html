@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>IMG2LCD</title>
+    <title></title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge"gt;
     <meta name="IMG2LCD GUI" content="">
@@ -34,17 +34,42 @@
        </div>
       </header>
       <div class="window-content">
-        <div class="padded-more">
+        <div class="padded-more image-side">
          <div id="main" class="content">
-           <img id="imageToConvert"/>
+           <img id="imagetoconvert"/>
          </div>
         </div>
+        <div class="padded-more prop-side">
+          <ul class="list-group">
+           <li class="list-group-header">
+             <p><strong>Properties</strong></p>
+           </li>
+           <li class="list-group-item">
+              <div class="media-body">
+                 <strong>Filename</strong>
+                 <p id="imgname"></p>
+              </div>
+           </li>
+           <li class="list-group-item">
+              <div class="media-body">
+                 <strong>Dimension</strong>
+                 <p id="imgdim"></p>
+              </div>
+           </li>
+           <li class="list-group-item">
+              <div class="media-body">
+                 <strong>Size</strong>
+                 <p id="imgsize"></p>
+              </div>
+           </li>
+           </ul>
+        </div>
       </div>
-      <div class="contentArea">
+      <div class="contentarea">
       <textarea id="hex"></textarea>
       </div>
       <footer class="toolbar toolbar-footer">
-          <p id="status">{{status}}</p>
+          <p id="status"></p>
       </footer>
     </div>
 
