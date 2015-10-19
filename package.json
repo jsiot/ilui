@@ -1,17 +1,17 @@
 {
   "name": "img2lcdui",
   "version": "1.0.0",
-  "description": "GUI for img2lcd",
+  "private": "true",
+  "description": "Convert Image to Hex for LCD",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "./node_modules/.bin/electron ."
   },
   "keywords": [
     "gui",
     "img2lcd"
   ],
-  "author": "Equan Pr.",
+  "author": "Jayot <jsdaniot@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "electron-prebuilt": "^0.33.8"
