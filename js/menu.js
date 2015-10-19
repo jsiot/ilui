@@ -3,6 +3,7 @@
 var remote = require('remote');
 var Menu = remote.require('menu');
 var MenuItem = remote.require('menu-item');
+var info = require('./package.json');
 
 var menu = new Menu();
 var template = [
@@ -14,7 +15,10 @@ var template = [
 	   },
 	   { label: 'Developer',
 		 click: () => {
-		   console.log('Not implemented yet');
+		   remote.require('dialog').showMessageBox({ 
+		   	  message: `${info.name} v${info.version}\n${info.description}\nby ${info.author}`,
+              buttons: ["OK"] 
+            });
 		 }
 	   },
 	   { label: 'Feedback',
@@ -31,4 +35,4 @@ var template = [
 ]
 
 menu = Menu.buildFromTemplate(template);
-//Menu.setApplicationMenu(menu);
+Menu.setApplicationMenu(menu);
