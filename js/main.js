@@ -33,6 +33,10 @@
 	    return false;
 	}, false);
 
+    document.getElementById('hex').addEventListener('click', function(){
+        this.select();
+    })
+
 	function setProperties(imageFile) {
         let d = sizeOf(imageFile);
         let stats = fs.statSync(imageFile);
