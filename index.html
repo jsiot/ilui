@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title></title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
@@ -23,8 +22,9 @@
             <button class="btn btn-default btn-large" title="Save" ng-click="save()">
               <span class="icon icon-floppy"></span>
             </button>
+            
         </div>
-        
+        <label class="auto"><input type="checkbox" id="autocb" ng-click="checked()"> <span class="autolabel">Auto</span></label>
         <button class="btn  btn-default pull-right btn-large" ng-click="copyToClipboard()" title="Copy to clipboard">
           <span class="icon icon-clipboard"></span>
         </button>
