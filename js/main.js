@@ -72,8 +72,11 @@
     	$scope.open = () => {
     		dialog.openFile((s) => {
               img.src = s[0];
-              imgFile = s[0];
-              setProperties(imgFile);
+              $scope.imgFile = s[0];
+              setProperties($scope.imgFile);
+              if($scope.autoconvert) {
+                $scope.convert();
+              }
     		})
     	}
 
