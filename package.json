@@ -1,8 +1,8 @@
 {
-  "name": "img2lcdui",
+  "name": "ilui",
   "version": "1.0.0",
   "private": "true",
-  "description": "Convert Image to Hex for LCD",
+  "description": "Convert image to hex for LCD",
   "main": "app.js",
   "scripts": {
     "start": "./node_modules/.bin/electron ."
@@ -20,6 +20,7 @@
     "angular": "^1.4.7",
     "filesize": "^3.1.3",
     "image-size": "^0.3.5",
-    "img2lcd": "^1.1.0"
+    "img2lcd": "^1.1.0",
+    "sqlite3": "^3.1.0"
   }
 }
