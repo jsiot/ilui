@@ -10,7 +10,7 @@ var template = [
 	{ label: 'Help', submenu: [
 	   { label: 'Documentation',
 	     click: () => {
-           require('shell').openExternal('https://github.com/jsiot/img2lcdui');
+           require('shell').openExternal('https://github.com/jsiot/ilui');
 	     }
 	   },
 	   { label: 'Developer',
@@ -23,7 +23,7 @@ var template = [
 	   },
 	   { label: 'Feedback',
          click: () => {
-           require('shell').openExternal('https://github.com/jsiot/img2lcdui/issues');
+           require('shell').openExternal('https://github.com/jsiot/ilui/issues');
          }
 	   },
 	   { label: 'Exit',
