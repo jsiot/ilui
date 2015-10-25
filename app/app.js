@@ -1,23 +1,21 @@
-'use strict';
+'use strict'
 
-const app = require('app'); 
-const BrowserWindow = require('browser-window');
-const info = require('./package.json');
-const prefs = require('./lib/prefs.js');
+const app = require('app')
+const BrowserWindow = require('browser-window')
+const info = require('./package.json')
+const prefs = require('./lib/prefs.js')
 
-let mainWindow = null;
+let mainWindow = null
 
 app.on('window-all-closed', () => {
-  if (process.platform != 'darwin') {
-    app.quit();
+  if (process.platform !== 'darwin') {
+    app.quit()
   }
-});
+})
 
-app.on('ready', () => { 
-  
-  var wstate = prefs.get('windowState');
-
-  if(wstate === null){
+app.on('ready', () => {
+  var wstate = prefs.get('windowState')
+  if (wstate === null) {
     wstate = {
       width: 640,
       height: 510,
@@ -32,17 +30,16 @@ app.on('ready', () => {
     'min-height': 200,
     'accept-first-mouse': true,
     'title-bar-style': 'hidden',
-    title: info.name +' - '+info.description
-  });
+    title: info.name + ' - ' + info.description
+  })
 
   if (wstate.maximized) {
-    mainWindow.maximize();
+    mainWindow.maximize()
   }
 
-  mainWindow.loadUrl(`file://${__dirname}/index.html`);
-  
+  mainWindow.loadUrl(`file://${__dirname}/index.html`)
   mainWindow.on('close', () => {
-    let bounds = mainWindow.getBounds();
+    let bounds = mainWindow.getBounds()
     prefs.set('windowState', {
       x: bounds.x,
       y: bounds.y,
@@ -50,7 +47,7 @@ app.on('ready', () => {
       height: bounds.height,
       maximized: mainWindow.isMaximized()
     })
-  });
+  })
 
-  mainWindow.on('closed', () => mainWindow = null);
-});
+  mainWindow.on('closed', () => mainWindow = null)
+})
