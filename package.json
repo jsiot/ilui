@@ -1,6 +1,6 @@
 {
   "name": "ilui-dev",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": "true",
   "description": "Convert image to hex for LCD",
   "scripts": {
